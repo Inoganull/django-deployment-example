@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body style="background-color: #e5f39b;">
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="navbar-header">
+            <a  class="navbar-brand"href="{% url 'index' %}">Welcome</a>
+        </div>
+        <ul class="nav navbar-nav">            
+            <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></>
+            <li><a class="navbar-link" href="{% url 'coffee_app:register' %}">Register</a></li>
+            {% if user.is_authenticated %}
+            <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{% url 'coffee_app:user_login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="container">
+        {% block body_block %}
+        
+        {% endblock %}
+    </div>    
+</body>
+</html>

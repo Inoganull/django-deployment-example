@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "coffee_app/base.html" %}
+    {% block body_block %}
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Log In</h1>
+                <p>Enter your email and password below to log in to Coffee Lover</p>
+            </div>
+            <form class="form-group" action="{% url 'coffee_app:user_login' %}" method="POST">
+                {% csrf_token %}
+                <label for="username">Username:</label>
+                <input class="form-control" type="text" name="username" placeholder="Enter Username"><br>
+        
+                <label for="password">Password:</label>
+                <input class="form-control" type="password" name="password" placeholder="Password" ><br>
+        
+                <input class="btn btn-default" type="submit" name="" value="Login">
+            </form>
+        </div>
+
+
+    {% endblock %}
